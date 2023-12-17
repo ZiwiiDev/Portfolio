@@ -4,13 +4,108 @@
 /*---------------------------------------------------------------------------------------------*/
 :root {
     --primary-color: #f9532d;             /* Definición del color principal */
+    --color-red: #F7086C;                 /* Color rojo */
+    --color-gradient-adicional-initial: rgba(255,95,109,1); /* Color rojo adicional */
     --primary-dark: #000000;              /* Color oscuro */                      /*--primary-dark: #0d1021;*/
     --primary-font: 'Outfit', sans-serif;   /* Fuente principal */
     --color-white: #ffffff;               /* Color blanco */
-    --color-red: #F7086C;                 /* Color rojo */
     --color-blue: #35c9fc;                /* Color azul */
+    --color-gradient-adicional-final: rgba(53,201,252,1);   /* Color azul adicional */
+    --color-pink: #e877ff;                /* Color rosa */
+    --color-dark-blue: #244D61;           /* Color azul oscuro */
+}
+/*---------------------------------------------------------------------------------------------*/
+/* ANIMATION */
+/* Animación para cada opción de la lista del menú de navegación */
+@keyframes navani {
+    /* Estilos iniciales */
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    /* Estilos finales */
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
+/* Animación para el h2 y el cambio de modo */
+@keyframes rightSideAni {
+    /* Estilos iniciales */
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    /* Estilos finales */
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animación para mi nombre (h1) */
+@keyframes topSideAni {
+    /* Estilos iniciales */
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    /* Estilos finales */
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación para los iconos de las redes sociales */
+@keyframes SocialAni {
+    /* Estilos iniciales */
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    /* Estilos finales */
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animación para los párrafos y el botón de descargar CV */
+@keyframes btn-ani {
+    /* Estilos iniciales */
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    /* Estilos finales */
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación para mi foto */
+@keyframes imageAni {
+    /* Estilos iniciales */
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    /* Estilos finales */
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/*---------------------------------------------------------------------------------------------*/
 /* Estilos para todos los elementos */
 * {
     font-family: var(--primary-font);       /* Se aplica la fuente principal a todos los elementos */
@@ -22,7 +117,7 @@
 /* Estilos para la cabecera */
 header {
     position: relative;                     /* Posición relativa del encabezado */
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);  /* Sombra */
+    box-shadow: 0 4px 17px rgb(80 80 80 / 30%);
     background-color: var(--color-white);               /* Fondo blanco */
     position: sticky;                       /* Encabezado pegajoso */
     top: 0;
@@ -108,18 +203,6 @@ li a:hover {
 .menu {
     display: none;
 }
-
-/* Estilos para cambiar de modo */
-.mode i {
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.5rem;
-    cursor: pointer;
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
-    opacity: 0;
-    animation: rightSideAni 1.5s ease forwards;
-    background-clip: text;
-}
 /*---------------------------------------------------------------------------------------------*/
 /* BODY */
 /* Section 1 */
@@ -180,6 +263,7 @@ li a:hover {
     background: linear-gradient(90deg, var(--color-red) 0%, var(--color-blue) 100%);
     box-shadow: 0 0 20px;
     transition: all .3s ease-in-out;
+    border: 2px solid var(--primary-dark);
 }
 
 /* Estilos para mi nombre */
@@ -203,225 +287,171 @@ li a:hover {
 .image-yo::before {
     position: absolute;
     content: "";
-    width: 25vw;
+    width: 20vw;
     height: 25vh;
     background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
     border-radius: 200px;
     top: 25%;
 }
 
-/*  */
+/* Estilos para el botón de descargar el CV */
 .main .btn {
-    height: 42px;
     width: 132px;
-    border-radius: 36px;
+    border-radius: 35px;
     background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
     margin-top: 2rem;
-    padding: 1px;
-    opacity: 0;
+    padding: 2px;
     animation: btn-ani 1s ease forwards;
-    animation-delay: .4s;
 }
 
-/*  */
+/* Estilos para el botón de descargar el CV */
 .detail button {
-    display: inline-block;
     height: 42px;
     width: 132px;
-    border-radius: 36px;
+    border-radius: 35px;
     border: 0;
-    background-color: #fff;
-    font-family: var(--primary-font);
+    background-color: var(--color-white);
     font-weight: 600;
-    font-size: 1.01rem;
+    font-size: 1rem;
     cursor: pointer;
-    text-align: center;
 }
 
-/*  */
+/* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
 .detail button:hover {
-    background-clip: text;
-    background: linear-gradient(90deg, rgba(255,95,109,1) 0%, rgba(53,201,252,1) 100%);
+    background: linear-gradient(90deg, var(--color-gradient-adicional-initial) 0%, var(--color-gradient-adicional-final) 100%);
     transition: all .3s ease-in-out;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-dark);
 }
+/*---------------------------------------------------------------------------------------------*/
+/* MODE */
+/* Estilos para cambiar de modo */
+.mode i {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    opacity: 0;
+    animation: rightSideAni 1.5s ease forwards;
+    background-clip: text;
+}
 
-/* Section 1 End */
-
-/*  */
+/* Estilos para ocultar el checkbox al pulsar el cambio de modo */
 .mode input {
     display: none;
 }
 
-/*  */
+/* Estilos para el modo oscuro */
 .dark-mode {
     background-color: var(--primary-dark);
-    color: #ffffff;
+    color: var(--color-white);
 }
 
-/*  */
-.dark-mode .social a:hover {
-    color: var(--primary-dark);
-    background-color: var(--primary-color);
-}
-
-/*  */
+/* Estilos para el botón de descargar CV en modo oscuro */
 .dark-mode .detail button {
     background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-dark);
-    
 }
 
-/*  */
+/* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
+.dark-mode .main .btn:hover {
+    background: linear-gradient(90deg, var(--color-white) 0%, var(--color-pink) 100%);
+    transition: all .3s ease-in-out;
+}
+
+/* Estilos para la cabecera en modo oscuro */
 .dark-mode header {
-    box-shadow: 0 4px 17px rgb(80 80 80 / 31%);
+    box-shadow: 0 4px 17px rgb(80 80 80 / 60%);
     background: var(--primary-dark);
 }
-
-/*  */
-/* Animation */
-@keyframes leftSideAni {
-    0% {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes navani {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-@keyframes rightSideAni {
-    0% {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes topSideAni {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-@keyframes SocialAni {
-    0% {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes btn-ani {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-/* @keyframes ImgAni {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-9px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-} */
-@keyframes imageAni {
-    0% {
-        opacity: 0;
-        transform: scale(0);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
+/*---------------------------------------------------------------------------------------------*/
+/* MEDIA QUERY */
+/* Media query para dispositivos de menos de 1024px */
 @media screen and (max-width: 1024px) {
     html {
         font-size: 80%;
     }
+
     .container {
         padding: 0 4.4rem;
     }
+
+    /* Estilos para el fondo gradient de detrás de la imagen */
+    .image-yo::before {
+        width: 35vw;
+        height: 27vh;
+    }
 }
 
+/* Media query para dispositivos de menos de 768px */
 @media screen and (max-width: 768px) {
     html {
         font-size: 80%;
     }
+
     .container {
         padding: 0 1.6rem;
     }
+
     .main {
         margin-top: 2rem;
         grid-template-columns: 1fr;
     }
+
     .image-yo {
         width: 60%;
         margin: auto;
     }
+
+    /* Estilos para el fondo gradient de detrás de la imagen */
+    .image-yo::before {
+        width: 45vw;
+        height: 27vh;
+    }
 }
 
+/* Media query para dispositivos de menos de 600px */
 @media screen and (max-width:600px) {
     html {
         font-size: 100%;
     }
+    
     header {
         height: auto;
     }
 
-    ul {
-        background: #fff;
-        width: 100%;
-        height: 100vh;
-        position: absolute;
+    ul { 
         display: flex;
         flex-direction: column;
         text-align: center;
-        top: 3.4rem;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-white);
+        top: 3.5rem;
         left: -100%;
         z-index: 111111;
     }
 
     .menu {
         display: block;
-        font-size: 1.5rem;
+        font-size: 1.5rem;        
         font-weight: bold;
-        color: #244D61;
+        color: var(--color-dark-blue);
     }
 
-    #click-menu-hamburguer:checked~ul {
+    #click-menu-hamburguer:checked ~ ul {
         left: 0%;
         transition: all 0.3s ease;
+    }
+
+    .mode {
+        position: absolute;
+        right: 4rem;
     }
 
     .dark-mode .menu {
@@ -435,13 +465,14 @@ li a:hover {
         background: var(--primary-dark);
     }
 
-    .mode {
-        position: absolute;
-        right: 4rem;
-    }
-
     .image-yo {
         width: 88%;
         margin: auto;
+    }
+
+    /* Estilos para el fondo gradient de detrás de la imagen */
+    .image-yo::before {
+        width: 55vw;
+        height: 27vh;
     }
 }
