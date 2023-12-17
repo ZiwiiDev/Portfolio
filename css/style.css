@@ -1,0 +1,447 @@
+/*---------------------------------------------------------------------------------------------*/
+/* Importo fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+/*---------------------------------------------------------------------------------------------*/
+:root {
+    --primary-color: #f9532d;             /* Definición del color principal */
+    --primary-dark: #000000;              /* Color oscuro */                      /*--primary-dark: #0d1021;*/
+    --primary-font: 'Outfit', sans-serif;   /* Fuente principal */
+    --color-white: #ffffff;               /* Color blanco */
+    --color-red: #F7086C;                 /* Color rojo */
+    --color-blue: #35c9fc;                /* Color azul */
+}
+
+/* Estilos para todos los elementos */
+* {
+    font-family: var(--primary-font);       /* Se aplica la fuente principal a todos los elementos */
+    margin: 0;                              /* Se eliminan los márgenes predeterminados */
+    padding: 0;                             /* Se eliminan los rellenos predeterminados */
+    scroll-behavior: smooth;                /* Comportamiento de desplazamiento suave */
+}
+
+/* Estilos para la cabecera */
+header {
+    position: relative;                     /* Posición relativa del encabezado */
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);  /* Sombra */
+    background-color: var(--color-white);               /* Fondo blanco */
+    position: sticky;                       /* Encabezado pegajoso */
+    top: 0;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    z-index: 1;
+}
+/*---------------------------------------------------------------------------------------------*/
+/* CABECERA */
+/* General */
+.container {
+    padding: 0 8.4rem;                      /* Relleno del contenedor general */
+}
+
+/* Estilos para mi foto */
+.miFoto {
+    position: relative;
+    
+    /* PONER EN MEDIO */
+}
+
+/* Estilos para el header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;                        /* Relleno del encabezado de página */
+}
+
+/* Estilos para la lista del menú de navegación */
+ul {
+    display: flex;                          /* Mostrar elementos de lista en línea */
+    list-style-type: none;                  /* Quitar viñetas de la lista */
+    background-color: transparent;          /* Fondo transparente */
+    overflow: hidden;
+}
+
+/* Estilos para cada opción de la lista del menú de navegación */
+li a {
+    display: inline-block;                  /* Mostrar en línea como bloque */
+    padding: .3rem 1rem;                    /* Relleno para enlaces */
+    color: var(--nav-text);                 /* Color del texto del menú de navegación */
+    text-decoration: none;                  /* Sin subrayado en enlaces */
+    font-size: 1.05rem;                     /* Tamaño de fuente */
+    font-weight: 600;                       /* Peso de la fuente */
+    opacity: 0;                             /* Opacidad inicial (oculto) */
+    animation: navani .3s ease forwards;    /* Animación de entrada */
+    animation-delay: calc(.15s * var(--navAni));    /* Animación para que entre de uno en uno */
+}
+
+/* Estilos para la línea de abajo de cada opción al pasar el ratón por encima */
+ul li a::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    width: calc(100% - 2rem);
+    height: 2.5px;
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    transform: scale(0, 1);
+    transition: transform .3s ease;
+}
+
+/* Estilos para la línea de abajo de cada opción al pasar el ratón por encima */
+ul li a:hover::before {
+    transform: scale(1, 1);
+}
+
+/* Estilos al pasar el ratón por encima y para la opción seleccionada */
+li a.active,
+li a:hover {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background-clip: text;
+}
+
+/* Estilos para el menú de hamburguesa */
+#click-menu-hamburguer {
+    display: none;
+}
+
+/* Estilos para el menú de hamburguesa */
+.menu {
+    display: none;
+}
+
+/* Estilos para cambiar de modo */
+.mode i {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    opacity: 0;
+    animation: rightSideAni 1.5s ease forwards;
+    background-clip: text;
+}
+/*---------------------------------------------------------------------------------------------*/
+/* BODY */
+/* Section 1 */
+.main {
+    display: grid;
+    grid-template-columns: 6% repeat(auto-fit, minmax(277px, 1fr));
+    row-gap: 2rem;
+    align-items: center;
+}
+
+/* Estilos para los "h1" de dentro de la clase "main" */
+.main h1 {
+    font-size: 3.5rem;
+    animation: topSideAni 1s ease forwards;
+}
+
+/* Estilos para los "h2" de dentro de la clase "main" */
+.main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: rightSideAni 1s ease forwards;
+}
+
+/* Estilos para los "p" de dentro de la clase "main" */
+.main p {
+    line-height: 1.5;
+    font-size: 1.1rem;
+    animation: btn-ani 1s ease forwards;
+}
+
+/* Estilos para los iconos de las redes sociales */
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/* Estilos para los enlaces de cada red social */
+.social a {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    display: grid;
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background-clip: text;
+    border: 2px solid;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    padding: 0.5rem;
+    animation: SocialAni 1s ease forwards;
+}
+
+/* Estilos para cuando pasa el ratón por encima de las redes sociales */
+.social a:hover {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--primary-dark);
+    background-clip: text;
+    background: linear-gradient(90deg, var(--color-red) 0%, var(--color-blue) 100%);
+    box-shadow: 0 0 20px;
+    transition: all .3s ease-in-out;
+}
+
+/* Estilos para mi nombre */
+.detail span {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background-clip: text;
+}
+
+/* Estilos para mi foto */
+.image-yo {
+    position: relative;
+    animation: imageAni 1s ease forwards;
+    width: 80%;
+    margin-left: auto;
+    z-index: -1;
+}
+
+/* Estilos para el fondo gradient de detrás de la imagen */
+.image-yo::before {
+    position: absolute;
+    content: "";
+    width: 25vw;
+    height: 25vh;
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    border-radius: 200px;
+    top: 25%;
+}
+
+/*  */
+.main .btn {
+    height: 42px;
+    width: 132px;
+    border-radius: 36px;
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    margin-top: 2rem;
+    padding: 1px;
+    opacity: 0;
+    animation: btn-ani 1s ease forwards;
+    animation-delay: .4s;
+}
+
+/*  */
+.detail button {
+    display: inline-block;
+    height: 42px;
+    width: 132px;
+    border-radius: 36px;
+    border: 0;
+    background-color: #fff;
+    font-family: var(--primary-font);
+    font-weight: 600;
+    font-size: 1.01rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+/*  */
+.detail button:hover {
+    background-clip: text;
+    background: linear-gradient(90deg, rgba(255,95,109,1) 0%, rgba(53,201,252,1) 100%);
+    transition: all .3s ease-in-out;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--primary-dark);
+}
+
+/* Section 1 End */
+
+/*  */
+.mode input {
+    display: none;
+}
+
+/*  */
+.dark-mode {
+    background-color: var(--primary-dark);
+    color: #ffffff;
+}
+
+/*  */
+.dark-mode .social a:hover {
+    color: var(--primary-dark);
+    background-color: var(--primary-color);
+}
+
+/*  */
+.dark-mode .detail button {
+    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--primary-dark);
+    
+}
+
+/*  */
+.dark-mode header {
+    box-shadow: 0 4px 17px rgb(80 80 80 / 31%);
+    background: var(--primary-dark);
+}
+
+/*  */
+/* Animation */
+@keyframes leftSideAni {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes navani {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes rightSideAni {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes topSideAni {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes SocialAni {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes btn-ani {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* @keyframes ImgAni {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-9px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+} */
+@keyframes imageAni {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 80%;
+    }
+    .container {
+        padding: 0 4.4rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 80%;
+    }
+    .container {
+        padding: 0 1.6rem;
+    }
+    .main {
+        margin-top: 2rem;
+        grid-template-columns: 1fr;
+    }
+    .image-yo {
+        width: 60%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:600px) {
+    html {
+        font-size: 100%;
+    }
+    header {
+        height: auto;
+    }
+
+    ul {
+        background: #fff;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        top: 3.4rem;
+        left: -100%;
+        z-index: 111111;
+    }
+
+    .menu {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #244D61;
+    }
+
+    #click-menu-hamburguer:checked~ul {
+        left: 0%;
+        transition: all 0.3s ease;
+    }
+
+    .dark-mode .menu {
+        background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .dark-mode ul {
+        background: var(--primary-dark);
+    }
+
+    .mode {
+        position: absolute;
+        right: 4rem;
+    }
+
+    .image-yo {
+        width: 88%;
+        margin: auto;
+    }
+}
