@@ -114,6 +114,18 @@
     scroll-behavior: smooth;                /* Comportamiento de desplazamiento suave */
 }
 
+/* Estilos generales para el HTML y el cuerpo del documento */
+html {
+    height: 100%;   /* Establezco la altura del html al 100% */
+}
+
+/* Estilos para el BODY */
+body {
+    margin: 0;  /* 0 de margen */
+    padding: 0; /* 0 de padding */
+    overflow-x: hidden; /* Para que no se pueda hacer scroll horizontal */
+}
+
 /* Estilos para la cabecera */
 header {
     position: relative;                     /* Posición relativa del encabezado */
@@ -132,11 +144,16 @@ header {
     padding: 0 8.4rem;                      /* Relleno del contenedor general */
 }
 
+/* Estilos para la mano */
+.waving-hand {
+    width: 60px;
+    margin-left: 2%;
+}
+
 /* Estilos para mi foto */
 .miFoto {
     position: relative;
-    
-    /* PONER EN MEDIO */
+    width: 50%;
 }
 
 /* Estilos para el header */
@@ -161,7 +178,7 @@ li a {
     padding: .3rem 1rem;                    /* Relleno para enlaces */
     color: var(--nav-text);                 /* Color del texto del menú de navegación */
     text-decoration: none;                  /* Sin subrayado en enlaces */
-    font-size: 1.05rem;                     /* Tamaño de fuente */
+    font-size: 1.1rem;                     /* Tamaño de fuente */
     font-weight: 600;                       /* Peso de la fuente */
     opacity: 0;                             /* Opacidad inicial (oculto) */
     animation: navani .3s ease forwards;    /* Animación de entrada */
@@ -211,6 +228,8 @@ li a:hover {
     grid-template-columns: 6% repeat(auto-fit, minmax(277px, 1fr));
     row-gap: 2rem;
     align-items: center;
+    margin: 13rem auto; /* Agrego espacio entre el header y la sección principal */
+    max-width: 1650px;
 }
 
 /* Estilos para los "h1" de dentro de la clase "main" */
@@ -280,18 +299,6 @@ li a:hover {
     animation: imageAni 1s ease forwards;
     width: 80%;
     margin-left: auto;
-    z-index: -1;
-}
-
-/* Estilos para el fondo gradient de detrás de la imagen */
-.image-yo::before {
-    position: absolute;
-    content: "";
-    width: 20vw;
-    height: 25vh;
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
-    border-radius: 200px;
-    top: 25%;
 }
 
 /* Estilos para el botón de descargar el CV */
@@ -324,6 +331,9 @@ li a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-dark);
 }
+/*---------------------------------------------------------------------------------------------*/
+
+
 /*---------------------------------------------------------------------------------------------*/
 /* MODE */
 /* Estilos para cambiar de modo */
@@ -368,6 +378,11 @@ li a:hover {
     box-shadow: 0 4px 17px rgb(80 80 80 / 60%);
     background: var(--primary-dark);
 }
+/*---------------------------------------------------------------------------------------------*/
+
+
+
+
 /*---------------------------------------------------------------------------------------------*/
 /* MEDIA QUERY */
 /* Media query para dispositivos de menos de 1024px */
@@ -451,7 +466,8 @@ li a:hover {
 
     .mode {
         position: absolute;
-        right: 4rem;
+        right: 2rem;
+        bottom: 1rem;
     }
 
     .dark-mode .menu {
