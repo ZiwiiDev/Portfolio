@@ -3,16 +3,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
 /*---------------------------------------------------------------------------------------------*/
 :root {
-    --primary-color: #f9532d;             /* Definición del color principal */
     --color-red: #F7086C;                 /* Color rojo */
-    --color-gradient-adicional-initial: rgba(255,95,109,1); /* Color rojo adicional */
-    --primary-dark: #000000;              /* Color oscuro */                      /*--primary-dark: #0d1021;*/
+    --primary-dark: #010101;              /* Color oscuro */                      /*--primary-dark: #0d1021;*/
     --primary-font: 'Outfit', sans-serif;   /* Fuente principal */
-    --color-white: #ffffff;               /* Color blanco */
+    --color-white: #fafafa;               /* Color blanco */
     --color-blue: #35c9fc;                /* Color azul */
-    --color-gradient-adicional-final: rgba(53,201,252,1);   /* Color azul adicional */
-    --color-pink: #e877ff;                /* Color rosa */
     --color-dark-blue: #244D61;           /* Color azul oscuro */
+    --border-radius: 14px;
+    --border-scrollbar-radius: 15px;
+    --border-radius-sm: 4px;
+    --color-warning: #ffc956;
+    --color-danger: #ff5e59;
+    --color-success: #55f16c;
+    --color-header: #1D1F20;
+    --color-border: #27272e;
+    --font-weight: 600;
+    --color-bg-footer: #262626;
+    --gradient-color: linear-gradient(to right, #b2ff5b, #daff95, #41c2ff, #00deff);
+    --gradient-color-90deg: linear-gradient(90deg, #41c2ff, #00deff, #b2ff5b, #daff95);
+}
+/*---------------------------------------------------------------------------------------------*/
+/* Estilo personalizado para la barra de desplazamiento */
+*::-webkit-scrollbar {
+    background-color: var(--color-white);
+    width: 4px;
+    border-radius: var(--border-scrollbar-radius);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #060606;
+    border-radius: var(--border-scrollbar-radius);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-dark);
+    border-radius: var(--border-scrollbar-radius);
 }
 /*---------------------------------------------------------------------------------------------*/
 /* ANIMATION */
@@ -105,6 +130,22 @@
         transform: scale(1);
     }
 }
+
+/* Animación para el about me*/
+@keyframes blink-animation {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+  
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
 /*---------------------------------------------------------------------------------------------*/
 /* Estilos para todos los elementos */
 * {
@@ -124,23 +165,25 @@ body {
     margin: 0;  /* 0 de margen */
     padding: 0; /* 0 de padding */
     overflow-x: hidden; /* Para que no se pueda hacer scroll horizontal */
+    height: 100vh;
+    
 }
 
+footer {
+    padding: 20px 0;
+    background-color: var(--color-bg-footer);
+}
+/*---------------------------------------------------------------------------------------------*/
+/* CABECERA */
+/* General */
 /* Estilos para la cabecera */
-header {
+#container {
     position: relative;                     /* Posición relativa del encabezado */
     box-shadow: 0 4px 17px rgb(80 80 80 / 30%);
     background-color: var(--color-white);               /* Fondo blanco */
     position: sticky;                       /* Encabezado pegajoso */
     top: 0;
-    border-bottom-left-radius: 20%;
-    border-bottom-right-radius: 20%;
     z-index: 1;
-}
-/*---------------------------------------------------------------------------------------------*/
-/* CABECERA */
-/* General */
-.container {
     padding: 0 8.4rem;                      /* Relleno del contenedor general */
 }
 
@@ -178,8 +221,8 @@ li a {
     padding: .3rem 1rem;                    /* Relleno para enlaces */
     color: var(--nav-text);                 /* Color del texto del menú de navegación */
     text-decoration: none;                  /* Sin subrayado en enlaces */
-    font-size: 1.1rem;                     /* Tamaño de fuente */
-    font-weight: 600;                       /* Peso de la fuente */
+    font-size: 1.2rem;                      /* Tamaño de fuente */
+    font-weight: var(--font-weight);        /* Peso de la fuente */
     opacity: 0;                             /* Opacidad inicial (oculto) */
     animation: navani .3s ease forwards;    /* Animación de entrada */
     animation-delay: calc(.15s * var(--navAni));    /* Animación para que entre de uno en uno */
@@ -192,7 +235,7 @@ ul li a::before {
     bottom: 0;
     width: calc(100% - 2rem);
     height: 2.5px;
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background: var(--gradient-color);
     transform: scale(0, 1);
     transition: transform .3s ease;
 }
@@ -207,7 +250,7 @@ li a.active,
 li a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background: var(--gradient-color);
     background-clip: text;
 }
 
@@ -220,6 +263,16 @@ li a:hover {
 .menu {
     display: none;
 }
+
+.snowflake {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
 /*---------------------------------------------------------------------------------------------*/
 /* BODY */
 /* Section 1 */
@@ -228,8 +281,8 @@ li a:hover {
     grid-template-columns: 6% repeat(auto-fit, minmax(277px, 1fr));
     row-gap: 2rem;
     align-items: center;
-    margin: 13rem auto; /* Agrego espacio entre el header y la sección principal */
-    max-width: 1700px;
+    margin: 6rem auto; /* Agrego espacio entre el header y la sección principal */
+    max-width: 1500px;
 }
 
 /* Estilos para los "h1" de dentro de la clase "main" */
@@ -264,14 +317,15 @@ li a:hover {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     display: grid;
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background: var(--gradient-color);
     background-clip: text;
-    border: 2px solid;
+    border: 2px solid var(--color-dark-blue);
     text-decoration: none;
     font-size: 1.5rem;
     border-radius: 50%;
     padding: 0.5rem;
     animation: SocialAni 1s ease forwards;
+    -webkit-animation:;
 }
 
 /* Estilos para cuando pasa el ratón por encima de las redes sociales */
@@ -279,7 +333,7 @@ li a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-dark);
     background-clip: text;
-    background: linear-gradient(90deg, var(--color-red) 0%, var(--color-blue) 100%);
+    background: var(--gradient-color-90deg);
     box-shadow: 0 0 20px;
     transition: all .3s ease-in-out;
     border: 2px solid var(--primary-dark);
@@ -289,7 +343,7 @@ li a:hover {
 .detail span {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background: var(--gradient-color);
     background-clip: text;
 }
 
@@ -305,10 +359,11 @@ li a:hover {
 .main .btn {
     width: 132px;
     border-radius: 35px;
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background: var(--gradient-color);
     margin-top: 2rem;
     padding: 2px;
     animation: btn-ani 1s ease forwards;
+    -webkit-animation: btn-ani 1s ease forwards;
 }
 
 /* Estilos para el botón de descargar el CV */
@@ -318,22 +373,101 @@ li a:hover {
     border-radius: 35px;
     border: 0;
     background-color: var(--color-white);
-    font-weight: 600;
+    font-weight: var(--font-weight);
     font-size: 1rem;
     cursor: pointer;
 }
 
 /* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
 .detail button:hover {
-    background: linear-gradient(90deg, var(--color-gradient-adicional-initial) 0%, var(--color-gradient-adicional-final) 100%);
     transition: all .3s ease-in-out;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-dark);
 }
 /*---------------------------------------------------------------------------------------------*/
+.window-about-me {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--primary-dark);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    max-width: 800px; /* Establece un ancho máximo para el contenedor */
+    margin: 20rem auto; /* Centra el contenedor en la página */
+}
 
+.window-header {
+    align-items: center;
+    background-color: var(--color-header);
+    color: var(--color-white);
+    justify-content: space-between;
+    padding: 10px 20px;
+}
 
+.dots,
+.window-header {
+    display: flex;
+    gap: 8px;
+}
+
+.window-dot-1,
+.window-dot-2,
+.window-dot-3 {
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+}
+
+.window-dot-1 {
+    background-color: var(--color-danger);
+}
+
+.window-dot-2 {
+     background-color: var(--color-warning);
+}
+
+.window-dot-3 {
+    background-color: var(--color-success);
+}
+
+.window-title {
+    font-size: 22px;
+    font-weight: var(--font-weight);
+    margin-right: 50px;
+}
+
+.window-body {
+    font-family: monospace;
+    font-size: 16px;
+    height: 100%;
+    overflow: auto;
+    padding: 20px;
+}
+
+.window-body-content {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
+    color: var(--color-white);
+}
+
+.window-body-info {
+    color: #ffc956;
+    line-height: 22px;
+}
+
+.window-body-info a {
+    color: #56bbff;
+    text-decoration: none;
+}
+  
+.blink {
+    width: 8px;
+    height: 16px;
+    background-color: var(--color-white); /* Cambia el color del cursor a blanco */
+    animation: blink-animation 1s infinite;
+}
 /*---------------------------------------------------------------------------------------------*/
 /* MODE */
 /* Estilos para cambiar de modo */
@@ -342,7 +476,7 @@ li a:hover {
     -webkit-text-fill-color: transparent;
     font-size: 1.5rem;
     cursor: pointer;
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background: var(--gradient-color);
     opacity: 0;
     animation: rightSideAni 1.5s ease forwards;
     background-clip: text;
@@ -359,9 +493,13 @@ li a:hover {
     color: var(--color-white);
 }
 
+.dark-mode header#container {
+    background-color:#050505;
+}
+
 /* Estilos para el botón de descargar CV en modo oscuro */
 .dark-mode .detail button {
-    background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+    background: var(--gradient-color);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-dark);
@@ -369,19 +507,101 @@ li a:hover {
 
 /* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
 .dark-mode .main .btn:hover {
-    background: linear-gradient(90deg, var(--color-white) 0%, var(--color-pink) 100%);
+    background: var(--gradient-color);
     transition: all .3s ease-in-out;
 }
 
 /* Estilos para la cabecera en modo oscuro */
-.dark-mode header {
+.dark-mode #container {
     box-shadow: 0 4px 17px rgb(80 80 80 / 60%);
     background: var(--primary-dark);
 }
+
+.dark-mode .style-logo span {
+    color: var(--color-white);
+}
+
+.dark-mode .style-logo span:first-letter {
+    color: var(--color-blue);
+}
+
+.dark-mode .main .btn {
+    background: var(--gradient-color-90deg);
+}
 /*---------------------------------------------------------------------------------------------*/
+.style-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;                      /* Tamaño de fuente */
+    font-weight: var(--font-weight);
+    line-height: 1;
+    font-style: italic;
+    text-decoration: none; /* Quita el subrayado del enlace */
+}
 
+.style-logo span {
+    color: var(--primary-dark);
+}
 
+.style-logo span:first-letter {
+    color: var(--color-blue);
+}
+/*---------------------------------------------------------------------------------------------*/
+.image-home {
+    display: block;
+    aspect-ratio: 1;
+    animation: rightSideAni 1.5s ease forwards;
+}
+/*---------------------------------------------------------------------------------------------*/
+/* FOOTER */
+.footer-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
 
+.footer-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.footer-span {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-weight: 500;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.footer-span:hover {
+    color: var(--color-blue);
+}
+
+.footer-emote {
+    fill: currentColor;
+}
+
+.footer-emote [stroke-width] {
+    fill: none;
+    stroke: currentColor;
+}
+
+.heart-emote {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--color-red);
+    line-height: 1;
+}
 /*---------------------------------------------------------------------------------------------*/
 /* MEDIA QUERY */
 /* Media query para dispositivos de menos de 1024px */
@@ -390,14 +610,14 @@ li a:hover {
         font-size: 80%;
     }
 
-    .container {
+    #container {
         padding: 0 4.4rem;
     }
 
-    /* Estilos para el fondo gradient de detrás de la imagen */
-    .image-yo::before {
-        width: 35vw;
-        height: 27vh;
+    /* Estilos para la mano */
+    .waving-hand {
+        width: 30px;
+        margin-left: 2%;
     }
 }
 
@@ -407,7 +627,7 @@ li a:hover {
         font-size: 80%;
     }
 
-    .container {
+    #container {
         padding: 0 1.6rem;
     }
 
@@ -421,10 +641,10 @@ li a:hover {
         margin: auto;
     }
 
-    /* Estilos para el fondo gradient de detrás de la imagen */
-    .image-yo::before {
-        width: 45vw;
-        height: 27vh;
+    /* Estilos para la mano */
+    .waving-hand {
+        width: 35px;
+        margin-left: 2%;
     }
 }
 
@@ -454,7 +674,7 @@ li a:hover {
     .menu {
         display: block;
         font-size: 1.5rem;        
-        font-weight: bold;
+        font-weight: var(--font-weight);
         color: var(--color-dark-blue);
     }
 
@@ -470,7 +690,7 @@ li a:hover {
     }
 
     .dark-mode .menu {
-        background: linear-gradient(to right, var(--color-red) 0%, var(--color-blue) 100%);
+        background: var(--gradient-color);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -485,9 +705,9 @@ li a:hover {
         margin: auto;
     }
 
-    /* Estilos para el fondo gradient de detrás de la imagen */
-    .image-yo::before {
-        width: 55vw;
-        height: 27vh;
+    /* Estilos para la mano */
+    .waving-hand {
+        width: 40px;
+        margin-left: 2%;
     }
 }
