@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const snowContainer = document.getElementById("snow-container");
+  let snowContainer = document.getElementById("snow-container");
 
   function createSnowflake() {
-    const snowflake = document.createElement("div");
+    let snowflake = document.createElement("div");
     snowflake.className = "snowflake";
     snowflake.style.left = Math.random() * window.innerWidth + "px";
     snowContainer.appendChild(snowflake);

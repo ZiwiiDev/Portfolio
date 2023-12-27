@@ -1,11 +1,18 @@
 /*---------------------------------------------------------------------------------------------*/
 /* Importo fuentes de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+
+@font-face {
+    font-family: "Gluten";
+    src: local("Gluten-BoldItalic"), url("../static/fonts/Gluten-BoldItalic.ttf");
+    font-weight: bold;
+}
 /*---------------------------------------------------------------------------------------------*/
 :root {
     --color-red: #F7086C;                 /* Color rojo */
     --primary-dark: #010101;              /* Color oscuro */                      /*--primary-dark: #0d1021;*/
     --primary-font: 'Outfit', sans-serif;   /* Fuente principal */
+    --logo-font: "Gluten", sans-serif;
     --color-white: #fafafa;               /* Color blanco */
     --color-blue: #35c9fc;                /* Color azul */
     --color-dark-blue: #244D61;           /* Color azul oscuro */
@@ -24,20 +31,29 @@
 }
 /*---------------------------------------------------------------------------------------------*/
 /* Estilo personalizado para la barra de desplazamiento */
-*::-webkit-scrollbar {
-    background-color: var(--color-white);
-    width: 4px;
-    border-radius: var(--border-scrollbar-radius);
+::-webkit-scrollbar {
+    position: absolute;
+    width: 8px;
+    background: var(--color-header);
+    transition: border-radius 1s;
+    margin-top: 40px;
+    -webkit-transition: border-radius 1s;
+    -moz-transition: border-radius 1s;
+    -ms-transition: border-radius 1s;
+    -o-transition: border-radius 1s;
 }
 
-*::-webkit-scrollbar-thumb {
-    background-color: #060606;
-    border-radius: var(--border-scrollbar-radius);
+::-webkit-scrollbar-thumb {
+    background: var(--color-success);
+    border-radius: 4px;
 }
 
-*::-webkit-scrollbar-thumb:hover {
-    background-color: var(--primary-dark);
-    border-radius: var(--border-scrollbar-radius);
+::-webkit-scrollbar-thumb:active {
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-header);
 }
 /*---------------------------------------------------------------------------------------------*/
 /* ANIMATION */
@@ -136,20 +152,40 @@
     0%, 100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
 }
-  
+
+@keyframes blink {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+}
+
 @keyframes fall {
     to {
         transform: translateY(100vh);
     }
 }
+
+@keyframes typing {
+    from { 
+        width: 0; 
+    }
+
+    to { 
+        width: 100%; 
+    }
+}
 /*---------------------------------------------------------------------------------------------*/
 /* Estilos para todos los elementos */
 * {
-    font-family: var(--primary-font);       /* Se aplica la fuente principal a todos los elementos */
     margin: 0;                              /* Se eliminan los márgenes predeterminados */
     padding: 0;                             /* Se eliminan los rellenos predeterminados */
     scroll-behavior: smooth;                /* Comportamiento de desplazamiento suave */
@@ -162,11 +198,13 @@ html {
 
 /* Estilos para el BODY */
 body {
+    font-family: var(--primary-font);       /* Se aplica la fuente principal a todos los elementos */
     margin: 0;  /* 0 de margen */
     padding: 0; /* 0 de padding */
     overflow-x: hidden; /* Para que no se pueda hacer scroll horizontal */
     height: 100vh;
-    
+    background-color: var(--primary-dark);
+    color: var(--color-white);
 }
 
 footer {
@@ -185,6 +223,9 @@ footer {
     top: 0;
     z-index: 1;
     padding: 0 8.4rem;                      /* Relleno del contenedor general */
+    background-color:#050505;
+    box-shadow: 0 4px 17px rgb(80 80 80 / 60%);
+    background: var(--primary-dark);
 }
 
 /* Estilos para la mano */
@@ -273,6 +314,27 @@ li a:hover {
     pointer-events: none;
     animation: fall linear infinite;
 }
+
+.style-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;                      /* Tamaño de fuente */
+    font-weight: var(--font-weight);
+    font-family: var(--logo-font);
+    line-height: 1;
+    font-style: italic;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    animation: SocialAni 1s ease forwards;
+}
+
+.style-logo span {
+    color: var(--color-white);
+}
+
+.style-logo span::first-letter {
+    color: var(--color-blue);
+}
 /*---------------------------------------------------------------------------------------------*/
 /* BODY */
 /* Section 1 */
@@ -292,9 +354,9 @@ li a:hover {
 }
 
 /* Estilos para los "h2" de dentro de la clase "main" */
-.main h2 {
+div .typing {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     animation: rightSideAni 1s ease forwards;
 }
 
@@ -325,7 +387,7 @@ li a:hover {
     border-radius: 50%;
     padding: 0.5rem;
     animation: SocialAni 1s ease forwards;
-    -webkit-animation:;
+    -webkit-animation: SocialAni 1s ease forwards;
 }
 
 /* Estilos para cuando pasa el ratón por encima de las redes sociales */
@@ -340,7 +402,7 @@ li a:hover {
 }
 
 /* Estilos para mi nombre */
-.detail span {
+span.my-name {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background: var(--gradient-color);
@@ -359,9 +421,9 @@ li a:hover {
 .main .btn {
     width: 132px;
     border-radius: 35px;
-    background: var(--gradient-color);
     margin-top: 2rem;
     padding: 2px;
+    background: var(--gradient-color);
     animation: btn-ani 1s ease forwards;
     -webkit-animation: btn-ani 1s ease forwards;
 }
@@ -371,19 +433,35 @@ li a:hover {
     height: 42px;
     width: 132px;
     border-radius: 35px;
-    border: 0;
-    background-color: var(--color-white);
+    border: none;
     font-weight: var(--font-weight);
     font-size: 1rem;
     cursor: pointer;
-}
-
-/* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
-.detail button:hover {
-    transition: all .3s ease-in-out;
+    font-family: var(--primary-font);       /* Se aplica la fuente principal a todos los elementos */
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-dark);
+}
+
+.detail button:hover {
+    box-shadow: 0 1px 16px var(--color-white);
+    transition: all 0.2s ease;
+}
+
+.typing h2 {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    font-size: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+}
+
+.blink-typing-text::after {
+    content: "|";
+    position: absolute;
+    animation: blink 0.7s infinite alternate;
 }
 /*---------------------------------------------------------------------------------------------*/
 .window-about-me {
@@ -461,92 +539,22 @@ li a:hover {
     color: #56bbff;
     text-decoration: none;
 }
-  
+
 .blink {
-    width: 8px;
+    margin-top: 2px;
+    width: 5px;
     height: 16px;
-    background-color: var(--color-white); /* Cambia el color del cursor a blanco */
+    background-color: var(--color-white);
     animation: blink-animation 1s infinite;
 }
 /*---------------------------------------------------------------------------------------------*/
-/* MODE */
-/* Estilos para cambiar de modo */
-.mode i {
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.5rem;
-    cursor: pointer;
-    background: var(--gradient-color);
-    opacity: 0;
-    animation: rightSideAni 1.5s ease forwards;
-    background-clip: text;
-}
 
-/* Estilos para ocultar el checkbox al pulsar el cambio de modo */
-.mode input {
-    display: none;
-}
 
-/* Estilos para el modo oscuro */
-.dark-mode {
-    background-color: var(--primary-dark);
-    color: var(--color-white);
-}
 
-.dark-mode header#container {
-    background-color:#050505;
-}
-
-/* Estilos para el botón de descargar CV en modo oscuro */
-.dark-mode .detail button {
-    background: var(--gradient-color);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: var(--primary-dark);
-}
-
-/* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
-.dark-mode .main .btn:hover {
-    background: var(--gradient-color);
-    transition: all .3s ease-in-out;
-}
-
-/* Estilos para la cabecera en modo oscuro */
-.dark-mode #container {
-    box-shadow: 0 4px 17px rgb(80 80 80 / 60%);
-    background: var(--primary-dark);
-}
-
-.dark-mode .style-logo span {
-    color: var(--color-white);
-}
-
-.dark-mode .style-logo span:first-letter {
-    color: var(--color-blue);
-}
-
-.dark-mode .main .btn {
-    background: var(--gradient-color-90deg);
-}
 /*---------------------------------------------------------------------------------------------*/
-.style-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;                      /* Tamaño de fuente */
-    font-weight: var(--font-weight);
-    line-height: 1;
-    font-style: italic;
-    text-decoration: none; /* Quita el subrayado del enlace */
-}
 
-.style-logo span {
-    color: var(--primary-dark);
-}
 
-.style-logo span:first-letter {
-    color: var(--color-blue);
-}
+
 /*---------------------------------------------------------------------------------------------*/
 .image-home {
     display: block;
@@ -576,6 +584,7 @@ li a:hover {
     display: flex;
     align-items: center;
     color: inherit;
+    font-family: var(--primary-font);       /* Se aplica la fuente principal a todos los elementos */
     font-weight: 500;
     border: none;
     background-color: transparent;
@@ -602,6 +611,87 @@ li a:hover {
     color: var(--color-red);
     line-height: 1;
 }
+/*---------------------------------------------------------------------------------------------*/
+/* MODE */
+/* Estilos para cambiar de modo */
+/*
+.mode i {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: var(--gradient-color);
+    opacity: 0;
+    animation: rightSideAni 1.5s ease forwards;
+    background-clip: text;
+}
+*/
+
+/* Estilos para ocultar el checkbox al pulsar el cambio de modo */
+/*
+.mode input {
+    display: none;
+}
+*/
+
+/* Estilos para el modo oscuro */
+/* 
+.dark-mode {
+    background-color: #25282b;
+    color: var(--primary-dark)
+}
+*/
+
+/* 
+.dark-mode header#container {
+    background-color: #201e1e;
+}
+*/
+
+/* Estilos para el botón de descargar CV en modo oscuro */
+/*
+.dark-mode .detail button {
+    background: var(--gradient-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--primary-dark);
+}
+*/
+
+/* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
+/*
+.dark-mode .main .btn:hover {
+    background: var(--gradient-color);
+    transition: all .3s ease-in-out;
+}
+*/
+
+/* Estilos para la cabecera en modo oscuro */
+/*
+.dark-mode #container {
+    box-shadow: 0 4px 17px rgb(80 80 80 / 60%);
+    background: var(--primary-dark);
+}
+*/
+
+/*
+.dark-mode .style-logo span {
+    color: var(--color-white);
+    
+}
+*/
+
+/*
+.dark-mode .style-logo span:first-letter {
+    color: var(--color-blue); 
+}
+*/
+
+/*
+.dark-mode .main .btn {
+    background: var(--gradient-color-90deg); 
+}
+*/
 /*---------------------------------------------------------------------------------------------*/
 /* MEDIA QUERY */
 /* Media query para dispositivos de menos de 1024px */
@@ -665,7 +755,7 @@ li a:hover {
         position: absolute;
         width: 100%;
         height: 100vh;
-        background: var(--color-white);
+        background: var(--primary-dark);
         top: 3.5rem;
         left: -100%;
         z-index: 111111;
@@ -675,7 +765,7 @@ li a:hover {
         display: block;
         font-size: 1.5rem;        
         font-weight: var(--font-weight);
-        color: var(--color-dark-blue);
+        color: var(--color-white);
     }
 
     #click-menu-hamburguer:checked ~ ul {
