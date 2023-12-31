@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: "Gluten";
-    src: local("Gluten-BoldItalic"), url("../static/fonts/Gluten-BoldItalic.ttf");
+    src: local("Gluten-BoldItalic"), url("../fonts/Gluten-BoldItalic.ttf");
     font-weight: bold;
 }
 /*---------------------------------------------------------------------------------------------*/
@@ -26,10 +26,69 @@
     --color-border: #27272e;
     --font-weight: 600;
     --color-bg-footer: #262626;
+    --color-dark-green: #008037;
+
+    /* white colors */
+
+    --clr-body-bcg: #fff;
+    --clr-body-bcg-2: rgb(250, 250, 250);
+    --clr-body-bcg-3: #f0f0f0;
+    /* black colors  */
+
+    --clr-font: #101114;
+    --clr-font-2: #191a1d;
+    --clr-font-3: #252525;
+    /* primary colors */
+
+    --clr-secondary: #00995e;
+    --clr-tertiary: #a2e2be;
+
+    /* shadows */
+
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    /* other colors */
+
+    --clr-white: #fff;
+    --clr-black: #222;
+    --clr-primary-gradient: linear-gradient(
+        to top right,
+        var(--clr-secondary),
+        var(--clr-primary)
+    );
+
+    /* darkest grey - used for headings */
+
+    --clr-grey-1: hsl(209, 61%, 16%);
+    --clr-grey-2: hsl(211, 39%, 23%);
+    --clr-grey-3: hsl(209, 34%, 30%);
+    --clr-grey-4: hsl(209, 28%, 39%);
+
+    /* grey used for paragraphs */
+
+    --clr-grey-5: hsl(210, 22%, 49%);
+    --clr-grey-6: hsl(209, 23%, 60%);
+    --clr-grey-7: hsl(211, 27%, 70%);
+    --clr-grey-8: hsl(210, 31%, 80%);
+    --clr-grey-9: hsl(212, 33%, 89%);
+    --clr-grey-10: #eef3f7;
+
+    --clr-tools-text: var(--clr-grey-3);
+
+
+
+
+    /* CAMBIAR COLORES */
+
     --gradient-color: linear-gradient(to right, #b2ff5b, #daff95, #41c2ff, #00deff);
     --gradient-color-90deg: linear-gradient(90deg, #41c2ff, #00deff, #b2ff5b, #daff95);
 }
 /*---------------------------------------------------------------------------------------------*/
+html {
+    scroll-behavior: smooth;
+}
+
 /* Estilo personalizado para la barra de desplazamiento */
 ::-webkit-scrollbar {
     position: absolute;
@@ -44,8 +103,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-success);
+    background: var(--color-dark-green);
     border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-success);
 }
 
 ::-webkit-scrollbar-thumb:active {
@@ -79,6 +142,20 @@
         transform: translateX(100px);
         opacity: 0;
     }
+
+    /* Estilos finales */
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes leftSideAni {
+    /* Estilos iniciales */
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+}
 
     /* Estilos finales */
     100% {
@@ -189,22 +266,17 @@
     margin: 0;                              /* Se eliminan los márgenes predeterminados */
     padding: 0;                             /* Se eliminan los rellenos predeterminados */
     scroll-behavior: smooth;                /* Comportamiento de desplazamiento suave */
-}
-
-/* Estilos generales para el HTML y el cuerpo del documento */
-html {
-    height: 100%;   /* Establezco la altura del html al 100% */
+    box-sizing: border-box;
 }
 
 /* Estilos para el BODY */
 body {
     font-family: var(--primary-font);       /* Se aplica la fuente principal a todos los elementos */
-    margin: 0;  /* 0 de margen */
     padding: 0; /* 0 de padding */
     overflow-x: hidden; /* Para que no se pueda hacer scroll horizontal */
-    height: 100vh;
     background-color: var(--primary-dark);
     color: var(--color-white);
+    margin: 0;  /* 0 de margen */
 }
 
 footer {
@@ -315,10 +387,15 @@ li a:hover {
     animation: fall linear infinite;
 }
 
+.logo {
+    width: 7%;
+    height: 7%;
+}
+
 .style-logo {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     font-size: 2rem;                      /* Tamaño de fuente */
     font-weight: var(--font-weight);
     font-family: var(--logo-font);
@@ -337,18 +414,33 @@ li a:hover {
 }
 /*---------------------------------------------------------------------------------------------*/
 /* BODY */
+.nav-alert {
+    background: var(--color-dark-blue);
+    text-align: center;
+    color: var(--color-white);
+    padding: 1rem;
+    animation: topSideAni 1s ease forwards;
+    -webkit-animation: topSideAni 1s ease forwards;
+}
+
+.nav-alert a {
+    text-decoration: underline;
+    color: var(--color-white);
+}
+
 /* Section 1 */
-.main {
+.section-one {
     display: grid;
     grid-template-columns: 6% repeat(auto-fit, minmax(277px, 1fr));
     row-gap: 2rem;
     align-items: center;
     margin: 6rem auto; /* Agrego espacio entre el header y la sección principal */
     max-width: 1500px;
+    z-index: 1;
 }
 
 /* Estilos para los "h1" de dentro de la clase "main" */
-.main h1 {
+.section-one h1 {
     font-size: 2.6rem;
     animation: topSideAni 1s ease forwards;
 }
@@ -358,10 +450,11 @@ div .typing {
     font-size: 1.5rem;
     margin-bottom: 2.5rem;
     animation: rightSideAni 1s ease forwards;
+    -webkit-animation: rightSideAni 1s ease forwards;
 }
 
 /* Estilos para los "p" de dentro de la clase "main" */
-.main p {
+.section-one p {
     line-height: 1.5;
     font-size: 1.1rem;
     animation: btn-ani 1s ease forwards;
@@ -409,16 +502,8 @@ span.my-name {
     background-clip: text;
 }
 
-/* Estilos para mi foto */
-.image-yo {
-    position: relative;
-    animation: imageAni 1s ease forwards;
-    width: 80%;
-    margin-left: auto;
-}
-
 /* Estilos para el botón de descargar el CV */
-.main .btn {
+.section-one .btn {
     width: 132px;
     border-radius: 35px;
     margin-top: 2rem;
@@ -463,6 +548,13 @@ span.my-name {
     position: absolute;
     animation: blink 0.7s infinite alternate;
 }
+
+.main-image {
+    margin-left: 30%;
+    border-radius: var(--border-radius);
+    width: 70%;
+    animation: leftSideAni 1s ease forwards;
+}
 /*---------------------------------------------------------------------------------------------*/
 .window-about-me {
     display: flex;
@@ -472,7 +564,7 @@ span.my-name {
     background-color: var(--primary-dark);
     border: 2px solid var(--color-border);
     border-radius: var(--border-radius);
-    max-width: 800px; /* Establece un ancho máximo para el contenedor */
+    max-width: 1050px; /* Establece un ancho máximo para el contenedor */
     margin: 20rem auto; /* Centra el contenedor en la página */
 }
 
@@ -548,10 +640,13 @@ span.my-name {
     animation: blink-animation 1s infinite;
 }
 /*---------------------------------------------------------------------------------------------*/
+/* - Splash Animation - */
+
 
 
 
 /*---------------------------------------------------------------------------------------------*/
+/*  */
 
 
 
@@ -721,7 +816,7 @@ span.my-name {
         padding: 0 1.6rem;
     }
 
-    .main {
+    .section-one {
         margin-top: 2rem;
         grid-template-columns: 1fr;
     }
