@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Crear copos de nieve
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 35; i++) {
     createSnowflake();
   }
 });

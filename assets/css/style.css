@@ -260,6 +260,16 @@ html {
         width: 100%; 
     }
 }
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
 /*---------------------------------------------------------------------------------------------*/
 /* Estilos para todos los elementos */
 * {
@@ -388,15 +398,14 @@ li a:hover {
 }
 
 .logo {
-    width: 7%;
-    height: 7%;
+    width: 40px; /* Ajusta el ancho según tus necesidades */
+    height: 40px; /* Ajusta la altura según tus necesidades */
 }
 
 .style-logo {
     display: flex;
     align-items: center;
-    justify-content: left;
-    font-size: 2rem;                      /* Tamaño de fuente */
+    font-size: 2rem; /* Tamaño de fuente */
     font-weight: var(--font-weight);
     font-family: var(--logo-font);
     line-height: 1;
@@ -407,6 +416,7 @@ li a:hover {
 
 .style-logo span {
     color: var(--color-white);
+    margin-left: 5px; /* Ajusta el margen izquierdo según tus necesidades */
 }
 
 .style-logo span::first-letter {
@@ -500,6 +510,8 @@ span.my-name {
     -webkit-text-fill-color: transparent;
     background: var(--gradient-color);
     background-clip: text;
+    filter:drop-shadow(5px 5px 5px var(--color-dark-blue));
+    -webkit-filter:drop-shadow(5px 5px 5px var(--color-dark-blue));
 }
 
 /* Estilos para el botón de descargar el CV */
@@ -551,9 +563,9 @@ span.my-name {
 
 .main-image {
     margin-left: 30%;
-    border-radius: var(--border-radius);
     width: 70%;
     animation: leftSideAni 1s ease forwards;
+    -webkit-animation: leftSideAni 1s ease forwards;
 }
 /*---------------------------------------------------------------------------------------------*/
 .window-about-me {
@@ -646,16 +658,106 @@ span.my-name {
 
 
 /*---------------------------------------------------------------------------------------------*/
-/*  */
+/* Skills Section */
+.text-skills,
+.text-projects {
+    display: flex;
+    justify-content: center;
+}
 
+#skills h2,
+#projects h2 {
+    font-size: 2.6rem;
+    align-items: center;
+    color: var(--color-white);
+    padding: 10px 20px;
+
+    
+}
+
+.span-skills,
+.span-projects {
+    color: var(--color-blue);
+}
+
+.slider-container {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container::before,
+.slider-container::after {
+    
+}
+
+
+.slider-container:hover, .tech-stack-slider:hover, .tech-stack-slider img:hover {
+    animation-play-state: paused;
+}
+
+.slider-container::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+    z-index: 0;
+}
+
+.slider-container::before {
+    left: 0;
+    top: 0;
+}
+
+.tech-stack-slider {
+    display: flex;
+    gap: 4rem;
+    margin: 6rem 0;
+    padding: 2rem;
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+}
+
+.tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tech-icon {
+    width: 6rem;
+    transition: .3s;
+    filter: grayscale(100%);
+}
+    
+.tech-icon + p {
+    opacity: 0;
+    transition: .3s;
+    position: absolute;
+    bottom: -2.5rem;
+}
+
+.tech-icon:hover {
+    transform: translateY(-2.5rem);
+    filter: grayscale(0%);
+    -webkit-transform: translateY(-2.5rem);
+    -moz-transform: translateY(-2.5rem);
+    -ms-transform: translateY(-2.5rem);
+    -o-transform: translateY(-2.5rem);
+}
+
+.tech-icon:hover + p {
+    opacity: 1;
+}
+/*---------------------------------------------------------------------------------------------*/
+/* Projects Section */
 
 
 /*---------------------------------------------------------------------------------------------*/
-.image-home {
-    display: block;
-    aspect-ratio: 1;
-    animation: rightSideAni 1.5s ease forwards;
-}
+/* Contact Section */
+
+
 /*---------------------------------------------------------------------------------------------*/
 /* FOOTER */
 .footer-container {
