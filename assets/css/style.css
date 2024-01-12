@@ -354,7 +354,7 @@ ul {
 li a {
     display: inline-block;                  /* Mostrar en línea como bloque */
     padding: .3rem 1rem;                    /* Relleno para enlaces */
-    color: var(--nav-text);                 /* Color del texto del menú de navegación */
+    color: var(--color-white);             /* Color del texto del menú de navegación */
     text-decoration: none;                  /* Sin subrayado en enlaces */
     font-size: 1.2rem;                      /* Tamaño de fuente */
     font-weight: var(--font-weight);        /* Peso de la fuente */
@@ -385,6 +385,7 @@ li a.active,
 li a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: var(--primary-dark);
     background-image: var(--gradient-color);
     background-clip: text;
 }
@@ -417,6 +418,7 @@ li a:hover {
 .style-logo {
     display: flex;
     align-items: center;
+    color: var(--color-white);
     font-size: 2rem; /* Tamaño de fuente */
     font-weight: var(--font-weight);
     font-family: var(--logo-font);
@@ -463,8 +465,10 @@ li a:hover {
 
 /* Estilos para los "h1" de dentro de la clase "main" */
 .section-one h1 {
+    color: var(--color-white);
     font-size: 2.6rem;
     animation: topSideAni 1s ease forwards;
+    -webkit-animation: topSideAni 1s ease forwards;
 }
 
 /* Estilos para los "h2" de dentro de la clase "main" */
@@ -477,9 +481,11 @@ div .typing {
 
 /* Estilos para los "p" de dentro de la clase "main" */
 .section-one p {
+    color: var(--color-white);
     line-height: 1.5;
     font-size: 1.1rem;
     animation: btn-ani 1s ease forwards;
+    -webkit-animation: btn-ani 1s ease forwards;
 }
 
 /* Estilos para los iconos de las redes sociales */
@@ -520,6 +526,7 @@ div .typing {
 span.my-name {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: var(--color-white);
     background-image: var(--gradient-color);
     background-clip: text;
     filter:drop-shadow(5px 5px 5px var(--color-dark-blue));
@@ -529,6 +536,7 @@ span.my-name {
 /* Estilos para el botón de descargar el CV */
 .section-one .btn {
     width: 132px;
+    color: var(--primary-dark);
     border-radius: 35px;
     margin-top: 2rem;
     padding: 2px;
@@ -541,6 +549,7 @@ span.my-name {
 .detail button {
     height: 42px;
     width: 132px;
+    color: var(--primary-dark);
     border-radius: 35px;
     border: none;
     font-weight: var(--font-weight);
@@ -565,6 +574,7 @@ span.my-name {
     display: inline-block;
     vertical-align: middle;
     height: 30px;
+    color: var(--color-white);
 }
 
 .blink-typing-text::after {
