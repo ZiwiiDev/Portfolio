@@ -314,14 +314,12 @@ footer {
 #container {
     position: relative;                     /* Posición relativa del encabezado */
     box-shadow: 0 4px 17px rgb(80 80 80 / 30%);
-    background-color: var(--color-white);               /* Fondo blanco */
     position: sticky;                       /* Encabezado pegajoso */
     top: 0;
     z-index: 1;
     padding: 0 8.4rem;                      /* Relleno del contenedor general */
     background-color:#050505;
     box-shadow: 0 4px 17px rgb(80 80 80 / 60%);
-    background: var(--primary-dark);
 }
 
 /* Estilos para la mano */
@@ -372,7 +370,7 @@ ul li a::before {
     bottom: 0;
     width: calc(100% - 2rem);
     height: 2.5px;
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     transform: scale(0, 1);
     transition: transform .3s ease;
 }
@@ -387,7 +385,7 @@ li a.active,
 li a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     background-clip: text;
 }
 
@@ -496,7 +494,7 @@ div .typing {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     display: grid;
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     background-clip: text;
     border: 2px solid var(--color-dark-blue);
     text-decoration: none;
@@ -522,7 +520,7 @@ div .typing {
 span.my-name {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     background-clip: text;
     filter:drop-shadow(5px 5px 5px var(--color-dark-blue));
     -webkit-filter:drop-shadow(5px 5px 5px var(--color-dark-blue));
@@ -534,7 +532,7 @@ span.my-name {
     border-radius: 35px;
     margin-top: 2rem;
     padding: 2px;
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     animation: btn-ani 1s ease forwards;
     -webkit-animation: btn-ani 1s ease forwards;
 }
@@ -698,7 +696,7 @@ span.my-name {
     color: var(--color-blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     background-clip: text;
     filter:drop-shadow(5px 5px 5px var(--color-dark-blue));
     -webkit-filter:drop-shadow(5px 5px 5px var(--color-dark-blue));
@@ -724,6 +722,7 @@ span.my-name {
     position: relative;
     overflow: hidden;
     mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, var(--color-white) 20%, var(--color-white) 90%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, var(--color-white) 20%, var(--color-white) 90%, rgba(0, 0, 0, 0) 100%);
 }
 
 .slider-container:hover,
@@ -749,8 +748,8 @@ span.my-name {
     gap: 4rem;
     margin: 2rem 0;
     padding: 2rem;
-    animation: scroll 40s linear infinite;
-    -webkit-animation: scroll 40s linear infinite;
+    animation: scroll 36s linear infinite;
+    -webkit-animation: scroll 36s linear infinite;
 }
 
 .tech {
@@ -821,8 +820,6 @@ span.my-name {
     border-radius: 5px;
 }
 */
-
-  
 /*---------------------------------------------------------------------------------------------*/
 /* Contact Section */
 .my-image-contact {
@@ -850,8 +847,7 @@ span.my-name {
     width: 262px;
     height: 312px;
     margin: auto;
-    background: rgb(4,0,255);
-    background: linear-gradient(135deg, #b2ff5b, 0%,  #daff95 35%, #41c2ff 50%, #00deff 100%);
+    background-image: linear-gradient(135deg, #b2ff5b, 0%,  #daff95 35%, #41c2ff 50%, #00deff 100%);
     border-radius: 6px;
 }
   
@@ -885,7 +881,7 @@ span.my-name {
     flex: 1; /* Ajusta el formulario para ocupar el espacio restante */
     max-width: 700px; /* Establece el ancho máximo del formulario si es necesario */
     margin: 40px auto;
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -977,7 +973,7 @@ button.send-contact:hover {
     -webkit-text-fill-color: transparent;
     font-size: 1.5rem;
     cursor: pointer;
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     opacity: 0;
     animation: rightSideAni 1.5s ease forwards;
     background-clip: text;
@@ -1008,7 +1004,7 @@ button.send-contact:hover {
 /* Estilos para el botón de descargar CV en modo oscuro */
 /*
 .dark-mode .detail button {
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-dark);
@@ -1018,7 +1014,7 @@ button.send-contact:hover {
 /* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
 /*
 .dark-mode .main .btn:hover {
-    background: var(--gradient-color);
+    background-image: var(--gradient-color);
     transition: all .3s ease-in-out;
 }
 */
@@ -1040,7 +1036,7 @@ button.send-contact:hover {
 }
 
 .dark-mode .main .btn {
-    background: var(--gradient-color-90deg); 
+    background-image: var(--gradient-color-90deg); 
 }
 */
 /*---------------------------------------------------------------------------------------------*/
@@ -1049,7 +1045,7 @@ button.send-contact:hover {
 @media screen and (max-width: 1024px) {
     html {
         font-size: 80%;
-    }
+    }           
 
     #container {
         padding: 0 4.4rem;
@@ -1131,7 +1127,7 @@ button.send-contact:hover {
     }
 
     .dark-mode .menu {
-        background: var(--gradient-color);
+        background-image: var(--gradient-color);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
