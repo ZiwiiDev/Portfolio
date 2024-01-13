@@ -354,7 +354,7 @@ li a:hover {
 
 .snowflake {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--color-white);
     border-radius: 50%;
     width: 10px;
     height: 10px;
