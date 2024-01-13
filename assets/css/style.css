@@ -241,8 +241,6 @@
     padding: 0;                             /* Se eliminan los rellenos predeterminados */
     scroll-behavior: smooth;                /* Comportamiento de desplazamiento suave */
     box-sizing: border-box;
-    color: var(--color-white)
-
 }
 
 /* Estilos para el BODY */
