@@ -9,86 +9,36 @@
 }
 /*---------------------------------------------------------------------------------------------*/
 :root {
-    --color-red: #F7086C;                 /* Color rojo */
-    --primary-dark: #010101;              /* Color oscuro */                      /*--primary-dark: #0d1021;*/
-    --primary-font: 'Outfit', sans-serif;   /* Fuente principal */
-    --logo-font: "Gluten", sans-serif;
-    --color-white: #fafafa;               /* Color blanco */
-    --color-blue: #35c9fc;                /* Color azul */
-    --color-dark-blue: #244D61;           /* Color azul oscuro */
-    --border-radius: 14px;
-    --border-scrollbar-radius: 15px;
-    --border-radius-sm: 4px;
+    /* Colores */
+    --primary-dark: #010101;
+    --primary-dark-mode: #0d1021;
+    --color-red: #F7086C;
+    --color-white: #fafafa;
+    --color-blue: #35c9fc;
+    --color-dark-blue: #244D61;
     --color-warning: #ffc956;
     --color-danger: #ff5e59;
     --color-success: #55f16c;
     --color-header: #1D1F20;
     --color-border: #27272e;
-    --font-weight: 600;
     --color-bg-footer: #262626;
     --color-dark-green: #008037;
 
-    /* white colors */
-
-    --clr-body-bcg: #fff;
-    --clr-body-bcg-2: rgb(250, 250, 250);
-    --clr-body-bcg-3: #f0f0f0;
-    /* black colors  */
-
-    --clr-font: #101114;
-    --clr-font-2: #191a1d;
-    --clr-font-3: #252525;
-    /* primary colors */
-
-    --clr-secondary: #00995e;
-    --clr-tertiary: #a2e2be;
-
-    /* shadows */
-
-    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-
-    /* other colors */
-
-    --clr-white: #fff;
-    --clr-black: #222;
-    --clr-primary-gradient: linear-gradient(
-        to top right,
-        var(--clr-secondary),
-        var(--clr-primary)
-    );
-
-    /* darkest grey - used for headings */
-
-    --clr-grey-1: hsl(209, 61%, 16%);
-    --clr-grey-2: hsl(211, 39%, 23%);
-    --clr-grey-3: hsl(209, 34%, 30%);
-    --clr-grey-4: hsl(209, 28%, 39%);
-
-    /* grey used for paragraphs */
-
-    --clr-grey-5: hsl(210, 22%, 49%);
-    --clr-grey-6: hsl(209, 23%, 60%);
-    --clr-grey-7: hsl(211, 27%, 70%);
-    --clr-grey-8: hsl(210, 31%, 80%);
-    --clr-grey-9: hsl(212, 33%, 89%);
-    --clr-grey-10: #eef3f7;
-
-    --clr-tools-text: var(--clr-grey-3);
-
-
-
-
-    /* CAMBIAR COLORES */
-
+    /* Gradient */
     --gradient-color: linear-gradient(to right, #b2ff5b, #daff95, #41c2ff, #00deff);
     --gradient-color-90deg: linear-gradient(90deg, #41c2ff, #00deff, #b2ff5b, #daff95);
+
+    /* Fuentes */
+    --primary-font: 'Outfit', sans-serif;
+    --logo-font: "Gluten", sans-serif;
+    --font-weight: 600;
+
+    /* Border */
+    --border-radius: 14px;
+    --border-scrollbar-radius: 15px;
+    --border-radius-sm: 4px;
 }
 /*---------------------------------------------------------------------------------------------*/
-html {
-    scroll-behavior: smooth;
-}
-
 /* Estilo personalizado para la barra de desplazamiento */
 ::-webkit-scrollbar {
     position: absolute;
@@ -291,6 +241,8 @@ html {
     padding: 0;                             /* Se eliminan los rellenos predeterminados */
     scroll-behavior: smooth;                /* Comportamiento de desplazamiento suave */
     box-sizing: border-box;
+    color: var(--color-white)
+
 }
 
 /* Estilos para el BODY */
@@ -352,15 +304,17 @@ ul {
 
 /* Estilos para cada opción de la lista del menú de navegación */
 li a {
-    display: inline-block;                  /* Mostrar en línea como bloque */
-    padding: .3rem 1rem;                    /* Relleno para enlaces */
-    color: var(--color-white);             /* Color del texto del menú de navegación */
-    text-decoration: none;                  /* Sin subrayado en enlaces */
-    font-size: 1.2rem;                      /* Tamaño de fuente */
-    font-weight: var(--font-weight);        /* Peso de la fuente */
-    opacity: 0;                             /* Opacidad inicial (oculto) */
-    animation: navani .3s ease forwards;    /* Animación de entrada */
-    animation-delay: calc(.15s * var(--navAni));    /* Animación para que entre de uno en uno */
+    display: inline-block;
+    padding: .3rem 1rem;
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    -moz-font-weight: var(--font-weight);
+    font-weight: var(--font-weight);
+    opacity: 0;
+    animation: navani .3s ease forwards;
+    animation-delay: calc(.15s * var(--navAni));
+    -webkit-animation: navani .3s ease forwards;
 }
 
 /* Estilos para la línea de abajo de cada opción al pasar el ratón por encima */
@@ -419,22 +373,32 @@ li a:hover {
     display: flex;
     align-items: center;
     color: var(--color-white);
-    font-size: 2rem; /* Tamaño de fuente */
-    font-weight: var(--font-weight);
+    font-size: 2rem;
     font-family: var(--logo-font);
     line-height: 1;
-    font-style: italic;
-    text-decoration: none; /* Quita el subrayado del enlace */
+    font-style: italic, -moz-italic;
+    text-decoration: none;
+    -moz-font-weight: var(--font-weight);
+    font-weight: var(--font-weight);
     animation: SocialAni 1s ease forwards;
+    -webkit-animation: SocialAni 1s ease forwards;
 }
 
 .style-logo span {
     color: var(--color-white);
-    margin-left: 5px; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-left: 5px;
+}
+
+.style-logo-letter {
+    color: var(--color-blue) !important;
+}
+
+.style-logo span::-moz-first-letter {
+    color: var(--color-blue) !important;
 }
 
 .style-logo span::first-letter {
-    color: var(--color-blue);
+    color: var(--color-blue) !important;
 }
 /*---------------------------------------------------------------------------------------------*/
 /* BODY */
@@ -459,7 +423,7 @@ li a:hover {
     row-gap: 2rem;
     align-items: center;
     margin: 6rem auto; /* Agrego espacio entre el header y la sección principal */
-    max-width: 1500px;
+    max-width: 1600px;
     z-index: 1;
 }
 
@@ -509,6 +473,10 @@ div .typing {
     padding: 0.5rem;
     animation: SocialAni 1s ease forwards;
     -webkit-animation: SocialAni 1s ease forwards;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 /* Estilos para cuando pasa el ratón por encima de las redes sociales */
@@ -552,6 +520,7 @@ span.my-name {
     color: var(--primary-dark);
     border-radius: 35px;
     border: none;
+    -moz-font-weight: var(--font-weight);
     font-weight: var(--font-weight);
     font-size: 1rem;
     cursor: pointer;
@@ -638,6 +607,7 @@ span.my-name {
 
 .window-title {
     font-size: 22px;
+    -moz-font-weight: var(--font-weight);
     font-weight: var(--font-weight);
     margin-right: 50px;
 }
@@ -895,12 +865,19 @@ span.my-name {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: black;
+    color: var(--primary-dark);
+}
+
+/* Estilos específicos para los marcadores de posición */
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+    color: var(--primary-dark);
 }
 
 label {
     display: block;
     margin-bottom: 8px;
+    color: var(--primary-dark);
 }
 
 input, textarea {
@@ -910,11 +887,12 @@ input, textarea {
     border: 1px solid var(--primary-dark);
     border-radius: 4px;
     box-sizing: border-box;
+    color: var(--primary-dark);
 }
 
 button.send-contact {
     background-color: var(--primary-dark);
-    color: var(--clr-white);
+    color: var(--color-white);
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
@@ -1121,6 +1099,7 @@ button.send-contact:hover {
     .menu {
         display: block;
         font-size: 1.5rem;        
+        -moz-font-weight: var(--font-weight);
         font-weight: var(--font-weight);
         color: var(--color-white);
     }
