@@ -202,12 +202,12 @@
 }
 
 @keyframes typing {
-    from { 
+    from {
         width: 0; 
     }
 
     to { 
-        width: 100%; 
+        width: 100%;
     }
 }
 
@@ -729,7 +729,7 @@ span.my-name {
     animation: scroll 36s linear infinite;
     -webkit-animation: scroll 36s linear infinite;
 }
-
+        
 .tech {
     display: flex;
     flex-direction: column;
