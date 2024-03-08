@@ -952,8 +952,7 @@ button.send-contact:hover {
 }
 /*---------------------------------------------------------------------------------------------*/
 /* MODE */
-/* Estilos para cambiar de modo */
-/*
+/* Estilos para cambiar de modo
 .mode i {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -966,30 +965,29 @@ button.send-contact:hover {
 }
 */
 
-/* Estilos para ocultar el checkbox al pulsar el cambio de modo */
-/*
+/* Estilos para ocultar el checkbox al pulsar el cambio de modo
 .mode input {
     display: none;
-} 
-*/
+}
 
-/* Estilos para el modo oscuro */
-/*
-.dark-mode {
-    background-color: #25282b;
-    color: var(--primary-dark)
+div.dark-mode-switch {
+    background-color: var(--primary-dark);
 }
 */
 
-/*
-.dark-mode header#container {
+/* Estilos para el modo oscuro
+.dark-mode-switch {
+    background-color: #25282b;
+    color: var(--primary-dark);
+}
+
+.dark-mode-switch header#container {
     background-color: #201e1e;
 }
 */
 
-/* Estilos para el botón de descargar CV en modo oscuro */
-/*
-.dark-mode .detail button {
+/* Estilos para el botón de descargar CV en modo oscuro
+.dark-mode-switch .detail button {
     background-image: var(--gradient-color);
     background-clip: text;
     -webkit-background-clip: text;
@@ -997,31 +995,28 @@ button.send-contact:hover {
 }
 */
 
-/* Estilos para cuando se pasa el ratón por encima del botón de descargar CV */
-/*
-.dark-mode .main .btn:hover {
+/* Estilos para cuando se pasa el ratón por encima del botón de descargar CV
+.dark-mode-switch .main .btn:hover {
     background-image: var(--gradient-color);
     transition: all .3s ease-in-out;
 }
 */
 
-/* Estilos para la cabecera en modo oscuro */
-/*
-.dark-mode #container {
+/* Estilos para la cabecera en modo oscuro
+.dark-mode-switch #container {
     box-shadow: 0 4px 17px rgb(80 80 80 / 60%);
     background: var(--primary-dark);
 }
 
-.dark-mode .style-logo span {
+.dark-mode-switch .style-logo span {
     color: var(--color-white);
-    
 }
 
-.dark-mode .style-logo span:first-letter {
+.dark-mode-switch .style-logo span:first-letter {
     color: var(--color-blue); 
 }
 
-.dark-mode .main .btn {
+.dark-mode-switch .main .btn {
     background-image: var(--gradient-color-90deg); 
 }
 */
@@ -1113,14 +1108,14 @@ button.send-contact:hover {
         bottom: 1rem;
     }
 
-    .dark-mode .menu {
+    .dark-mode-switch .menu {
         background-image: var(--gradient-color);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
-    .dark-mode ul {
+    .dark-mode-switch ul {
         background: var(--primary-dark);
     }
 
