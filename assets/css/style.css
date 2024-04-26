@@ -7,6 +7,18 @@
   src: local("Gluten-BoldItalic"), url("../fonts/Gluten-BoldItalic.ttf");
   font-weight: bold;
 }
+
+@font-face {
+  font-family: "Indie Flower";
+  src: local("IndieFlower-Regular"), url("../fonts/IndieFlower-Regular.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Gemja Flower";
+  src: local("GamjaFlower-Regular"), url("../fonts/GamjaFlower-Regular.ttf");
+  font-weight: bold;
+}
 /*---------------------------------------------------------------------------------------------*/
 :root {
   /* Colores */
@@ -39,6 +51,7 @@
     #b2ff5b,
     #daff95
   );
+  --gradient-form: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
 
   /* Fuentes */
   --primary-font: "Outfit", sans-serif;
@@ -470,6 +483,7 @@ div .typing {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
+  margin-left: 50%;
 }
 
 /* Estilos para los enlaces de cada red social */
@@ -526,6 +540,10 @@ span.my-name {
   -webkit-animation: btn-ani 1s ease forwards;
 }
 
+.detail {
+  margin-left: 10%;
+}
+
 /* Estilos para el botón de descargar el CV */
 .detail button {
   height: 42px;
@@ -554,11 +572,12 @@ span.my-name {
   overflow: hidden;
   white-space: nowrap;
   margin: 0;
-  font-size: 24px;
+  font-size: 25px;
   display: inline-block;
   vertical-align: middle;
-  height: 30px;
+  height: 36px;
   color: var(--color-white);
+  font-family: "Indie Flower";
 }
 
 .blink-typing-text::after {
@@ -568,7 +587,7 @@ span.my-name {
 }
 
 .main-image {
-  margin-left: 30%;
+  margin-left: 20%;
   width: 70%;
   animation: leftSideAni 1s ease forwards;
   -webkit-animation: leftSideAni 1s ease forwards;
@@ -901,8 +920,8 @@ span.my-name {
   flex: 1; /* Ajusta el formulario para ocupar el espacio restante */
   max-width: 700px; /* Establece el ancho máximo del formulario si es necesario */
   margin: 40px auto;
-  background-image: var(--gradient-color);
   padding: 20px;
+  background-image: var(--gradient-form);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: var(--primary-dark);
@@ -962,6 +981,8 @@ button.send-contact:hover {
   justify-content: center;
   text-align: center;
   color: var(--color-white);
+  position: relative;
+  right: 250px;
 }
 
 .footer-span {
@@ -996,6 +1017,47 @@ button.send-contact:hover {
   vertical-align: middle;
   color: var(--color-red);
   line-height: 1;
+}
+
+/* Estilos para los iconos de las redes sociales */
+.social_footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  position: absolute;
+  top: 2332px;
+  left: 1000px;
+}
+
+/* Estilos para los enlaces de cada red social */
+.social_footer a {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display: grid;
+  background-image: var(--gradient-color);
+  background-clip: text;
+  border: 2px solid var(--color-dark-blue);
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+  animation: SocialAni 1s ease forwards;
+  -webkit-animation: SocialAni 1s ease forwards;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+/* Estilos para cuando pasa el ratón por encima de las redes sociales */
+.social_footer a:hover {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--primary-dark);
+  background-clip: text;
+  background: var(--gradient-color-90deg);
+  box-shadow: 0 0 20px;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid var(--primary-dark);
 }
 /*---------------------------------------------------------------------------------------------*/
 /* MODE */
@@ -1096,7 +1158,7 @@ div.dark-mode-switch {
   section#about.window-about-me {
     margin: 10%;
   }
-  
+
   .my-image-contact::before,
   .my-image-contact::after {
     width: 270px;
