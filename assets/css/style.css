@@ -606,8 +606,8 @@ span.my-name {
   background-color: var(--primary-dark);
   border: 2px solid var(--color-border);
   border-radius: var(--border-radius);
-  max-width: 1050px; /* Establece un ancho máximo para el contenedor */
-  margin: 13rem auto; /* Centra el contenedor en la página */
+  max-width: 900px; /* Establece un ancho máximo para el contenedor */
+  margin: 5rem auto; /* Centra el contenedor en la página */
 }
 
 .window-header {
@@ -668,6 +668,7 @@ span.my-name {
 .window-body-info {
   color: #ffc956;
   line-height: 22px;
+  font-size: 14px;
 }
 
 .window-body-info a {
@@ -1187,6 +1188,10 @@ div.dark-mode-switch {
   div.form-container {
     margin-left: 5%;
   }
+
+  .window-body-info {
+    font-size: 14px;
+  }
 }
 
 /* Media query para dispositivos de menos de 768px */
@@ -1230,6 +1235,10 @@ div.dark-mode-switch {
   .main-image {
     display: none;
   }
+
+  .window-body-info {
+    font-size: 14px;
+  }
 }
 
 /* Media query para dispositivos de menos de 600px */
@@ -1264,6 +1273,10 @@ div.dark-mode-switch {
   #click-menu-hamburguer:checked ~ ul {
     left: 0%;
     transition: all 0.3s ease;
+  }
+
+  .window-body-info {
+    font-size: 14px;
   }
 
   /*
