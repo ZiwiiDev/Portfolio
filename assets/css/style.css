@@ -269,6 +269,11 @@
   box-sizing: border-box;
 }
 
+/* Estilos para el HTML */
+html {
+  overflow-x: hidden;
+}
+
 /* Estilos para el BODY */
 body {
   font-family: var(
@@ -1142,6 +1147,7 @@ div.dark-mode-switch {
 @media screen and (max-width: 1024px) {
   html {
     font-size: 80%;
+    overflow-x: hidden;
   }
 
   section.section-one {
@@ -1187,6 +1193,7 @@ div.dark-mode-switch {
 @media screen and (max-width: 768px) {
   html {
     font-size: 80%;
+    overflow-x: hidden;
   }
 
   #container {
@@ -1227,6 +1234,10 @@ div.dark-mode-switch {
 
 /* Media query para dispositivos de menos de 600px */
 @media screen and (max-width: 600px) {
+  html {
+    overflow-x: hidden;
+  }
+
   ul {
     display: flex;
     flex-direction: column;
