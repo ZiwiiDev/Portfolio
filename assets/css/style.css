@@ -928,6 +928,10 @@ span.my-name {
   margin-right: 4%;
 }
 
+.form-container textarea {
+  resize: none; /* Impide que el usuario redimensione el textarea */
+}
+
 /* Estilos específicos para los marcadores de posición
 .form-container input::placeholder,
 .form-container textarea::placeholder {
@@ -981,8 +985,8 @@ button.send-contact:hover {
   justify-content: center;
   text-align: center;
   color: var(--color-white);
-  position: relative;
-  right: 250px;
+  /* position: relative;
+  right: 250px; */
 }
 
 .footer-span {
@@ -1019,7 +1023,7 @@ button.send-contact:hover {
   line-height: 1;
 }
 
-/* Estilos para los iconos de las redes sociales */
+/* Estilos para los iconos de las redes sociales 
 .social_footer {
   display: flex;
   flex-wrap: wrap;
@@ -1028,8 +1032,9 @@ button.send-contact:hover {
   top: 2332px;
   left: 1000px;
 }
+*/
 
-/* Estilos para los enlaces de cada red social */
+/* Estilos para los enlaces de cada red social
 .social_footer a {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -1048,8 +1053,9 @@ button.send-contact:hover {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
+*/
 
-/* Estilos para cuando pasa el ratón por encima de las redes sociales */
+/* Estilos para cuando pasa el ratón por encima de las redes sociales
 .social_footer a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: var(--primary-dark);
@@ -1059,6 +1065,7 @@ button.send-contact:hover {
   transition: all 0.3s ease-in-out;
   border: 2px solid var(--primary-dark);
 }
+*/
 /*---------------------------------------------------------------------------------------------*/
 /* MODE */
 /* Estilos para cambiar de modo
@@ -1211,6 +1218,10 @@ div.dark-mode-switch {
 
   div.form-container {
     margin-left: 5%;
+  }
+
+  .main-image {
+    display: none;
   }
 }
 
